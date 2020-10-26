@@ -106,10 +106,10 @@ def test_load_realcase_unnamed_group():
     fn = os.path.join(curdir, 'realcase.xlog')
     doc = load_xlog(fn)
 
-    # check very first value of channel at beginning
+    # check very first value of channel at beginning (intger)
     tbase = doc.group('').channel('Timebase')
     assert 106689471250 == tbase.data[0]
-    
-    # check very last value of a channel at the end (stichprobe)
+
+    # check secound last value  channel at the end (float)
     z_acti = doc.group('Z').channel('actI')
     assert -0.158721923828125 == pytest.approx(z_acti.data[-1], 0.001)
