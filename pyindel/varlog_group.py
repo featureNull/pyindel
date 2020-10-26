@@ -7,6 +7,9 @@ class VarlogGroup:
     def __init__(self, name: str):
         self._name = name
         self.channels = []
+    
+    def __str__(self):
+        return f'VarlogGroup:"{self._name}"'
 
     @property
     def name(self) -> str:

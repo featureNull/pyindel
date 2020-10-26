@@ -1,13 +1,13 @@
 from lxml import etree
-
 from pyindel.varlog_group import VarlogGroup
+
 
 class VarlogDoc:
     def __init__(self):
         self.sample_rate = '10ms'
         self.groups = []
 
-    def add_group(self, name: str):
+    def add_group(self, name: str) -> VarlogGroup:
         for g in self.groups:
             if g.name == name:
                 raise RuntimeError(f'{name} wurde schon vergeben')
@@ -17,7 +17,7 @@ class VarlogDoc:
 
     def group(self, name: str) -> VarlogGroup:
         for g in self.groups:
-            if g.name:
+            if g.name == name:
                 return g
         raise RuntimeError(f'group {name} not found')
 

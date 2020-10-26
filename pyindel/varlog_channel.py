@@ -9,6 +9,9 @@ class VarlogChannel:
         self.unit = None
         self.data = data
 
+    def __str__(self):
+        return f'VarlogChannel:"{self._name}"'
+
     @property
     def name(self) -> str:
         return self._name
